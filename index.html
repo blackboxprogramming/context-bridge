@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context Bridge</title>
+    <style>
+        body {
+            font-family: 'Linux Libertine', Georgia, Times, serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-family: 'Linux Libertine', Georgia, Times, serif;
+            font-size: 28px;
+            font-weight: normal;
+            border-bottom: 1px solid #a2a9b1;
+            margin-top: 1em;
+            margin-bottom: 0.25em;
+            padding-bottom: 0.17em;
+        }
+        h2 {
+            font-family: 'Linux Libertine', Georgia, Times, serif;
+            font-size: 21px;
+            font-weight: normal;
+            border-bottom: 1px solid #a2a9b1;
+            margin-top: 1em;
+            margin-bottom: 0.25em;
+        }
+        h3 {
+            font-family: 'Linux Libertine', Georgia, Times, serif;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 0.5em;
+        }
+        p {
+            margin: 0.5em 0;
+        }
+        a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            margin: 0.3em 0 0 1.6em;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 0.1em;
+        }
+        .infobox {
+            border: 1px solid #a2a9b1;
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 1em 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .signup-form {
+            margin: 2em 0;
+            padding: 20px;
+            border: 1px solid #a2a9b1;
+            background: #f8f9fa;
+        }
+        input[type="email"] {
+            font-family: inherit;
+            font-size: 14px;
+            padding: 6px;
+            width: 300px;
+            border: 1px solid #a2a9b1;
+        }
+        button {
+            font-family: inherit;
+            font-size: 14px;
+            padding: 6px 12px;
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e8e9ea;
+        }
+        .footnote {
+            font-size: 12px;
+            color: #54595d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Context Bridge</h1>
+        
+        <p><strong>Context Bridge</strong> is a system for maintaining persistent context across multiple AI assistant conversations. It addresses the problem of context loss between sessions when using tools like Claude, ChatGPT, or GitHub Copilot.</p>
+
+        <h2>The Problem</h2>
+        
+        <p>Users of AI assistants frequently encounter the following issues:</p>
+        
+        <ul>
+            <li>Each new conversation begins with no knowledge of previous sessions</li>
+            <li>Users must spend approximately 10 minutes re-explaining their project context at the start of each conversation</li>
+            <li>Context fragmentation occurs across different AI platforms</li>
+            <li>Inability to simply continue from where a previous conversation ended</li>
+        </ul>
+
+        <h2>The Solution</h2>
+        
+        <p>Context Bridge maintains a single, authoritative context document that can be accessed by any AI assistant. The system works as follows:</p>
+        
+        <ul>
+            <li>A structured context file is created and maintained</li>
+            <li>The file is hosted at a publicly accessible URL</li>
+            <li>Users provide this URL to AI assistants at the beginning of conversations</li>
+            <li>AI assistants read the context file and immediately understand the current state of work</li>
+            <li>Updates to the context file propagate to all future conversations</li>
+        </ul>
+
+        <h3>Technical Implementation</h3>
+        
+        <p>The current implementation uses GitHub Gists as the hosting mechanism, providing version control and public accessibility. A simple update script allows users to refresh the context with a single command.</p>
+
+        <h2>Availability</h2>
+        
+        <div class="infobox">
+            <p><strong>Launch Date:</strong> Friday, February 14, 2026</p>
+            <p><strong>Pricing:</strong> $10/month or $100/year</p>
+            <p><strong>Status:</strong> Early access signup available</p>
+        </div>
+
+        <div class="signup-form">
+            <h3>Get Early Access</h3>
+            <form action="https://formspree.io/f/xanyoewe" method="POST">
+                <p>
+                    <input type="email" name="email" placeholder="email@example.com" required>
+                    <button type="submit">Submit</button>
+                </p>
+                <p class="footnote">Early access users will be notified when the service launches on February 14th.</p>
+            </form>
+        </div>
+
+        <h2>See Also</h2>
+        <ul>
+            <li><a href="https://gist.github.com/blackboxprogramming/8bb9904096b3203ee52bfc976dfafb3e">Example Context File</a></li>
+        </ul>
+
+        <hr style="margin-top: 2em; border: 0; border-top: 1px solid #a2a9b1;">
+        
+        <p class="footnote">This page was last modified on 13 February 2026.</p>
+    </div>
+</body>
+</html>
