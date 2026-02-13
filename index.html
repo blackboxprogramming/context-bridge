@@ -139,23 +139,54 @@
 
         <div class="signup-form">
             <h3>Get Early Access</h3>
-            <form action="https://formspree.io/f/xanyoewe" method="POST">
+            <form id="signup-form">
                 <p>
-                    <input type="email" name="email" placeholder="email@example.com" required>
+                    <input type="email" name="email" id="email" placeholder="email@example.com" required>
                     <button type="submit">Submit</button>
                 </p>
                 <p class="footnote">Early access users will be notified when the service launches on February 14th.</p>
             </form>
+            <div id="message" style="display:none; margin-top: 15px; padding: 10px; background: #d4edda; border: 1px solid #c3e6cb;"></div>
         </div>
 
         <h2>See Also</h2>
         <ul>
             <li><a href="https://gist.github.com/blackboxprogramming/8bb9904096b3203ee52bfc976dfafb3e">Example Context File</a></li>
+            <li><a href="https://github.com/blackboxprogramming/context-bridge">Source Code</a></li>
         </ul>
 
         <hr style="margin-top: 2em; border: 0; border-top: 1px solid #a2a9b1;">
         
         <p class="footnote">This page was last modified on 13 February 2026.</p>
     </div>
+    
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const messageDiv = document.getElementById('message');
+            
+            try {
+                const response = await fetch('https://formspree.io/f/xanyoewe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                
+                if (response.ok) {
+                    messageDiv.textContent = 'Thanks! You\'ll hear from us on February 14th.';
+                    messageDiv.style.display = 'block';
+                    document.getElementById('email').value = '';
+                } else {
+                    throw new Error('Failed');
+                }
+            } catch (error) {
+                messageDiv.textContent = 'Something went wrong. Please try again.';
+                messageDiv.style.background = '#f8d7da';
+                messageDiv.style.borderColor = '#f5c6cb';
+                messageDiv.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
