@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - Context Bridge</title>
+    <style>
+        body {
+            font-family: Georgia, Times, serif;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .success-box {
+            border: 2px solid #0645ad;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        h1 {
+            color: #0645ad;
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 10px;
+        }
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .gist-url {
+            background: #fff;
+            border: 1px solid #a2a9b1;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: monospace;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-box">
+        <h1>Welcome to Context Bridge!</h1>
+        
+        <p><strong>Your context file has been created.</strong></p>
+        
+        <div class="gist-url" id="gist-url">Loading your context URL...</div>
+        
+        <h2>How to use it</h2>
+        
+        <ol>
+            <li>Copy the URL above</li>
+            <li>When starting any AI conversation, say: <code>Read [your URL] first</code></li>
+            <li>The AI will understand your context immediately</li>
+            <li>Update your context anytime: <code>gh gist edit [gist-id] CURRENT_CONTEXT.md</code></li>
+        </ol>
+        
+        <h2>Next steps</h2>
+        
+        <ul>
+            <li>Edit your context file to add your current projects</li>
+            <li>Try it with Claude, ChatGPT, or GitHub Copilot</li>
+            <li>Update weekly (or whenever your focus changes)</li>
+        </ul>
+        
+        <p><a href="/">← Back to home</a></p>
+    </div>
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+        
+        if (sessionId) {
+            fetch(`/api/get-context?session=${sessionId}`)
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('gist-url').textContent = data.gistUrl;
+                })
+                .catch(() => {
+                    document.getElementById('gist-url').textContent = 'Check your email for your context URL';
+                });
+        }
+    </script>
+</body>
+</html>
