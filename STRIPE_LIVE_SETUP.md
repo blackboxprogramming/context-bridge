@@ -1,0 +1,226 @@
+# 💳 Stripe Live Mode Setup - Context Bridge
+
+**Date**: February 14, 2026  
+**Status**: Live keys ready ✅  
+**Goal**: Create live payment products and integrate into website
+
+---
+
+## ✅ What You Already Have
+
+- ✅ **Live Publishable Key**: `pk_live_51SUDM8ChUUSEbzyh...`
+- ✅ **Live Secret Key**: `sk_live_51SUDM8ChUUSEbzyh...`
+- ✅ **Live Restricted Key**: `rk_live_51SUDM8ChUUSEbzyh...`
+- ✅ Saved in: `/Users/alexa/.stripe_keys`
+
+---
+
+## 🚀 Step-by-Step Setup
+
+### Step 1: Access Stripe Dashboard (1 min)
+
+```bash
+# Dashboard should be opening now
+# OR manually go to:
+open https://dashboard.stripe.com
+```
+
+**Make sure you're in LIVE mode** (toggle in top-left corner)
+
+---
+
+### Step 2: Create Monthly Product (2 min)
+
+1. Go to: **Products** → **Add Product**
+2. Fill in:
+   - **Name**: `Context Bridge Monthly`
+   - **Description**: `Monthly subscription to Context Bridge premium features`
+   - **Pricing Model**: Recurring
+   - **Price**: `$10.00 USD`
+   - **Billing Period**: Monthly
+3. Click **Save Product**
+4. Click **Create Payment Link**
+5. Copy the payment link (looks like: `https://buy.stripe.com/live_xxx`)
+
+---
+
+### Step 3: Create Annual Product (2 min)
+
+1. Go to: **Products** → **Add Product**
+2. Fill in:
+   - **Name**: `Context Bridge Annual`
+   - **Description**: `Annual subscription to Context Bridge premium features (save 17%)`
+   - **Pricing Model**: Recurring
+   - **Price**: `$100.00 USD`
+   - **Billing Period**: Yearly
+3. Click **Save Product**
+4. Click **Create Payment Link**
+5. Copy the payment link
+
+---
+
+## 📝 Update Website with Live Links
+
+Once you have the payment links, update the landing page:
+
+**File**: `/Users/alexa/context-bridge/index.html`
+
+**Find and replace**:
+```html
+<!-- OLD (test mode) -->
+<a href="https://buy.stripe.com/test_9B6cN4fOr6bYbvi8xD4ko00">Monthly ($10/mo)</a>
+<a href="https://buy.stripe.com/test_dRm9AS8lZ0REbviaFL4ko01">Annual ($100/yr)</a>
+
+<!-- NEW (live mode) -->
+<a href="YOUR_LIVE_MONTHLY_LINK_HERE">Monthly ($10/mo)</a>
+<a href="YOUR_LIVE_ANNUAL_LINK_HERE">Annual ($100/yr)</a>
+```
+
+---
+
+## 🧪 Test the Purchase Flow
+
+### Before Going Live:
+
+```bash
+# Use Stripe test cards in Live mode
+# Card: 4242 4242 4242 4242
+# Expiry: Any future date (e.g., 12/28)
+# CVC: Any 3 digits (e.g., 123)
+# ZIP: Any 5 digits (e.g., 12345)
+```
+
+### After Testing:
+
+1. Cancel the test subscription in Stripe Dashboard
+2. Verify webhook delivery (if webhooks set up)
+3. Check email notifications work
+4. Verify customer portal access
+
+---
+
+## 📊 Quick Checklist
+
+**Stripe Dashboard**:
+- [ ] Switch to Live mode (top-left toggle)
+- [ ] Create "Context Bridge Monthly" product ($10/month)
+- [ ] Create "Context Bridge Annual" product ($100/year)
+- [ ] Generate payment links for both products
+- [ ] Copy both payment links
+
+**Website Update**:
+- [ ] Edit `/Users/alexa/context-bridge/index.html`
+- [ ] Replace test payment links with live ones
+- [ ] Search for any other `test_` Stripe links
+- [ ] Commit changes to git
+- [ ] Deploy to Cloudflare Pages
+
+**Testing**:
+- [ ] Click monthly payment link → works
+- [ ] Click annual payment link → works
+- [ ] Complete test purchase (4242... card)
+- [ ] Check Stripe dashboard shows payment
+- [ ] Cancel test subscription
+
+---
+
+## 🎯 Expected Outcome
+
+### Live Payment Links:
+```
+Monthly: https://buy.stripe.com/live_XXXXXXXXXX
+Annual:  https://buy.stripe.com/live_YYYYYYYYYY
+```
+
+### Website Updates:
+- Users can purchase immediately
+- Test mode removed
+- Real payments processed
+- **First customer possible today!** 💰
+
+---
+
+## 🔗 Quick Commands
+
+```bash
+# Open Stripe Dashboard
+open https://dashboard.stripe.com
+
+# Edit landing page
+code /Users/alexa/context-bridge/index.html
+# OR
+nano /Users/alexa/context-bridge/index.html
+
+# Search for test links
+cd /Users/alexa/context-bridge
+grep -r "stripe.com/test_" .
+
+# Deploy after updates
+cd /Users/alexa/context-bridge
+git add index.html
+git commit -m "feat: switch to Stripe live mode"
+git push origin main
+```
+
+---
+
+## 🆘 Troubleshooting
+
+### "Can't switch to Live mode"
+**Solution**: Complete Stripe account verification first
+- Business details
+- Bank account
+- Identity verification
+
+### "Payment link not working"
+**Solution**: Check payment link status in Stripe
+- Go to: Payment Links
+- Ensure status is "Active"
+- Verify product is published
+
+### "No products showing"
+**Solution**: Ensure you're in Live mode
+- Check top-left toggle
+- Test products won't show in Live mode
+
+---
+
+## 📈 After Going Live
+
+### Monitor Your First Sale:
+- **Dashboard**: https://dashboard.stripe.com/payments
+- **Customers**: https://dashboard.stripe.com/customers
+- **Products**: https://dashboard.stripe.com/products
+
+### Set Up Alerts:
+- Email notifications for successful payments
+- Webhook for failed payments
+- Daily revenue summary
+
+### Customer Support:
+- Customer Portal: Auto-generated by Stripe
+- Cancellation flow: Self-service
+- Refunds: Manual via dashboard
+
+---
+
+## 💡 Pro Tips
+
+1. **Test First**: Always test with 4242... card before announcing
+2. **Webhook Testing**: Use Stripe CLI to test locally
+3. **Customer Emails**: Configure in Stripe settings
+4. **Tax Collection**: Consider Stripe Tax for global sales
+5. **Analytics**: Link Stripe to analytics dashboard
+
+---
+
+**Ready? Let's go live!** 🚀
+
+**Next Steps**:
+1. Open Stripe Dashboard (should be open now)
+2. Switch to Live mode (top-left)
+3. Create two products (monthly & annual)
+4. Copy payment links
+5. Tell me the links and I'll update the website
+
+**Or just say "done" when ready and I'll help with the next step!**

@@ -1,0 +1,98 @@
+🚀 Just launched Context Bridge!
+
+Stop re-explaining yourself to AI assistants every conversation.
+
+✨ One-click context insertion across:
+• ChatGPT
+• Claude  
+• GitHub Copilot
+• Google Gemini
+
+CLI: npm install -g @context-bridge/cli
+Landing: https://context-bridge.pages.dev
+
+🧵 Thread ⬇️
+
+---
+
+The problem: You have important context AI needs
+- Your role, expertise, preferences
+- Current projects & goals
+- Communication style
+- Recent wins & blockers
+
+But you're tired of copying/pasting it EVERY time.
+
+Context Bridge adds a simple "Insert Context" button.
+
+---
+
+How it works:
+
+1️⃣ Store your context in a GitHub Gist (you own your data)
+2️⃣ Configure Context Bridge once with your Gist URL
+3️⃣ Visit any supported AI platform
+4️⃣ Click "Insert Context" button
+5️⃣ Done! Your full context is inserted instantly
+
+No servers. No tracking. Just works.
+
+---
+
+Privacy first:
+✅ Your data stays in YOUR Gist
+✅ No tracking or analytics
+✅ No middleman servers
+✅ Open source - audit the code
+✅ Direct GitHub connection only
+
+You own your context. Period.
+
+---
+
+Performance:
+⚡ First load: <300ms
+⚡ Cached: ~10ms (30x faster!)
+⚡ Intelligent caching
+⚡ Automatic retry on failures
+⚡ Production-tested & hardened
+
+We spent 100+ hours optimizing so you don't wait.
+
+---
+
+Perfect for:
+• Developers (tech stack, sprint goals)
+• Consultants (client context, projects)
+• Writers (style guides, audience)
+• Students (courses, research topics)
+• Anyone who uses AI regularly
+
+Stop wasting time. Start using Context Bridge.
+
+---
+
+Get started:
+
+🔧 CLI (power users):
+npm install -g @context-bridge/cli
+
+🌐 Landing page:
+https://context-bridge.pages.dev
+
+📦 Chrome Extension:
+(Coming soon - in review!)
+
+💰 Pricing: $10/month or $100/year
+
+Let's go! 🚀
+
+---
+
+P.S. Built this because I was tired of re-explaining myself to AI assistants 10x per day.
+
+Solved my own problem. Hope it solves yours too.
+
+Questions? Reply here!
+
+#AI #Productivity #Developer #OpenSource

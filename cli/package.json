@@ -1,0 +1,33 @@
+{
+  "name": "@context-bridge/cli",
+  "version": "0.1.0",
+  "description": "CLI tool for managing your AI context files",
+  "main": "lib/index.js",
+  "bin": {
+    "context": "bin/context.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ai",
+    "context",
+    "claude",
+    "chatgpt",
+    "gpt",
+    "copilot"
+  ],
+  "author": "Context Bridge",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
+    "proper-lockfile": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

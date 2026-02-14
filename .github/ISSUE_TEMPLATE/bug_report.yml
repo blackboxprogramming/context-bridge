@@ -1,0 +1,227 @@
+name: Bug Report
+description: Report a bug or issue with Context Bridge
+title: "[Bug]: "
+labels: ["bug"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out this form as completely as possible to help us fix the issue quickly.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please verify these items before submitting
+      options:
+        - label: I have searched [existing issues](https://github.com/blackroad-os/context-bridge/issues) and this is not a duplicate
+          required: true
+        - label: I have read the [Quick Start Guide](https://github.com/blackroad-os/context-bridge/blob/main/QUICKSTART.md)
+          required: true
+        - label: I have checked the [FAQ](https://github.com/blackroad-os/context-bridge/blob/main/FAQ.md)
+          required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: "Example: The 'Insert Context' button doesn't appear on ChatGPT"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - Critical (extension completely broken)
+        - High (core functionality broken)
+        - Medium (feature partially broken)
+        - Low (minor issue or cosmetic)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser are you using?
+      options:
+        - Chrome
+        - Firefox
+        - Edge
+        - Brave
+        - Opera
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: input
+    id: browser-version
+    attributes:
+      label: Browser Version
+      description: "Find this in your browser's 'About' page (e.g., Chrome 120.0.6099.109)"
+      placeholder: "Example: Chrome 120.0.6099.109"
+    validations:
+      required: true
+
+  - type: input
+    id: extension-version
+    attributes:
+      label: Extension Version
+      description: "Click the Context Bridge icon in your browser toolbar to see the version"
+      placeholder: "Example: 1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: AI Platform
+      description: Which AI platform were you using when the bug occurred?
+      options:
+        - ChatGPT (chat.openai.com)
+        - ChatGPT (chatgpt.com)
+        - Claude (claude.ai)
+        - GitHub Copilot (github.com)
+        - Google Gemini (gemini.google.com)
+        - Multiple platforms
+        - Not platform-specific
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you using?
+      options:
+        - macOS
+        - Windows
+        - Linux
+        - Chrome OS
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the bug
+      placeholder: |
+        1. Go to https://chat.openai.com
+        2. Click the Context Bridge icon
+        3. Enter Gist URL and click Save
+        4. Look for "Insert Context" button
+        5. See error: button not appearing
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen?
+      placeholder: "The 'Insert Context' button should appear next to the chat input"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happens?
+      placeholder: "The button doesn't appear at all"
+    validations:
+      required: true
+
+  - type: textarea
+    id: console-logs
+    attributes:
+      label: Browser Console Logs (Important!)
+      description: |
+        Open browser console (F12 or Cmd+Option+I), look for errors, and paste them here.
+        This is **extremely helpful** for debugging!
+      placeholder: |
+        Example:
+        [Context Bridge Error] Failed to fetch: https://api.github.com/gists/abc123
+        TypeError: Cannot read property 'files' of undefined
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the problem
+      placeholder: "Drag and drop images here or paste image URLs"
+    validations:
+      required: false
+
+  - type: input
+    id: gist-url
+    attributes:
+      label: Gist URL (Optional)
+      description: "If the issue is specific to a Gist, share the URL (only if it's public!)"
+      placeholder: "https://gist.github.com/username/abc123..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: reproducibility
+    attributes:
+      label: How Often Does This Happen?
+      description: Can you reproduce this consistently?
+      options:
+        - Always (100% of the time)
+        - Often (>50% of the time)
+        - Sometimes (<50% of the time)
+        - Rarely (happened once or twice)
+        - Unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround (If You Found One)
+      description: Have you found any way to work around this issue?
+      placeholder: "Example: Refreshing the page fixes it temporarily"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other information that might help us fix this bug
+      placeholder: |
+        - Does this happen with other extensions disabled?
+        - Does this happen in Incognito/Private mode?
+        - Did this work before and suddenly break?
+        - Any other relevant details?
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: troubleshooting
+    attributes:
+      label: Troubleshooting Steps Tried
+      description: Have you tried these common fixes?
+      options:
+        - label: Refreshed the page (F5 or Cmd+R)
+        - label: Restarted the browser
+        - label: Disabled other extensions temporarily
+        - label: Cleared browser cache
+        - label: Re-installed the extension
+        - label: Tested in Incognito/Private mode
+        - label: Checked that Gist URL is correct and public

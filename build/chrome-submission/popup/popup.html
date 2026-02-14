@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Bridge</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <h1>🌉 Context Bridge</h1>
+      <p class="subtitle">One-click context for AI</p>
+    </div>
+
+    <div id="no-context" class="section" style="display: none;">
+      <div class="empty-state">
+        <p>No context URL set yet.</p>
+        <p class="hint">Create one with the CLI:</p>
+        <code>npm install -g @context-bridge/cli</code>
+        <code>context init</code>
+        <code>context url --raw</code>
+      </div>
+    </div>
+
+    <div id="has-context" class="section" style="display: none;">
+      <div class="status-badge">
+        <span class="badge-icon">✓</span>
+        <span>Context active</span>
+      </div>
+
+      <div class="url-display">
+        <label>Your Context URL:</label>
+        <div class="url-box">
+          <input type="text" id="context-url-display" readonly>
+          <button id="copy-btn" class="icon-btn" title="Copy">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="preview-btn" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          Preview Context
+        </button>
+        <button id="change-btn" class="btn btn-secondary">Change URL</button>
+      </div>
+    </div>
+
+    <div id="set-context" class="section" style="display: none;">
+      <label for="context-url-input">Enter your context URL:</label>
+      <input type="text" id="context-url-input" placeholder="https://gist.github.com/.../raw/...">
+      <div class="btn-group">
+        <button id="save-btn" class="btn btn-primary">Save</button>
+        <button id="cancel-btn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="https://context-bridge.pages.dev" target="_blank">Website</a>
+      <span>•</span>
+      <a href="https://github.com/blackboxprogramming/context-bridge" target="_blank">GitHub</a>
+      <span>•</span>
+      <a href="#" id="clear-btn">Clear</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
